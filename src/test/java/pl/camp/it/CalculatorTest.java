@@ -1,10 +1,34 @@
 package pl.camp.it;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.*;
 
 public class CalculatorTest {
-    Calculator calculator = new Calculator();
+    static Calculator calculator;
+
+    public CalculatorTest() {
+        System.out.println("Konstruktor");
+    }
+
+    @BeforeClass
+    public static void beforeClass() {
+        calculator = new Calculator();
+        System.out.println("BeforeClass !!");
+    }
+
+    @AfterClass
+    public static void afterClass() {
+        System.out.println("AfterClass");
+    }
+
+    @Before
+    public void before() {
+        System.out.println("Before !!");//żeby przygotować się do testu
+    }
+
+    @After
+    public void after() {
+        System.out.println("After !!");//żeby posprzątać po teście
+    }
 
 
     @Test
